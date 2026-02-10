@@ -1,8 +1,10 @@
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
    <div className="min-h-screen min-w-full bg-slate-500">
     <h2 className="text-4xl text-gray-800">Hello, World!</h2>
+    <Button variant={"secondary"}>Click Me</Button>
    </div>
   );
 }
