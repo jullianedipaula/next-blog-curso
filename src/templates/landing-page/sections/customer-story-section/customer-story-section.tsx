@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 const customerStories = [
   {
@@ -19,15 +19,13 @@ const customerStories = [
       avatar: '/customer-02.png',
     },
   },
-];
+]
 
 export const CustomerStorySection = () => {
   return (
     <section className="container py-8 md:py-10">
       <div className="flex flex-col items-center gap-12">
-        <h2
-          className="font-sans text-heading-xl text-gray-100"
-        >
+        <h2 className="font-sans text-heading-xl text-gray-100">
           Quem utiliza, aprova!
         </h2>
 
@@ -65,5 +63,5 @@ export const CustomerStorySection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

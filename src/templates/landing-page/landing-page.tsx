@@ -1,4 +1,10 @@
-import { HeroSection, FeatureSection, SupportSection, CustomerStorySection, CallToAction } from "@/templates/landing-page/sections"
+import {
+  HeroSection,
+  FeatureSection,
+  SupportSection,
+  CustomerStorySection,
+  CallToAction,
+} from '@/templates/landing-page/sections'
 
 export const LandingPage = () => {
   return (

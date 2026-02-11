@@ -1,7 +1,7 @@
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '../../../../components/ui/button';
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '../../../../components/ui/button'
 
 export const FeatureSection = () => {
   return (
@@ -45,7 +45,7 @@ export const FeatureSection = () => {
               </Link>
             </Button>
           </div>
-          
+
           <div className="flex flex-col items-center justify-center w-full">
             <div className="w-full max-w-md overflow-hidden">
               <Image
@@ -69,5 +69,5 @@ export const FeatureSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

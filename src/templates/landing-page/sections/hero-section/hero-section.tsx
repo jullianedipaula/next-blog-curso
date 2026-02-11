@@ -1,5 +1,5 @@
 import { ArrowRight, Clock, Store } from 'lucide-react'
-import { Button } from '../../../../components/ui/button';
+import { Button } from '../../../../components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -31,11 +31,11 @@ export const HeroSection = () => {
 
           <div className="text-gray-100 flex flex-col gap-2 mt-5 items-center md:items-start lg:items-start">
             <Button className="rounded-full w-fit" asChild>
-                <Link href="/criar-loja">
-                  Criar loja grátis
-                  <ArrowRight />
-                </Link>
-              </Button>
+              <Link href="/criar-loja">
+                Criar loja grátis
+                <ArrowRight />
+              </Link>
+            </Button>
 
             <p className="text-gray-300 text-body-xs">
               Não precisa de cartão de crédito

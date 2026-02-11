@@ -1,6 +1,6 @@
-import { ArrowRight, Store } from 'lucide-react';
-import Link from 'next/link';
-import { Button } from '../../../../components/ui/button';
+import { ArrowRight, Store } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '../../../../components/ui/button'
 
 export const CallToAction = () => {
   return (
@@ -13,7 +13,6 @@ export const CallToAction = () => {
 
       <div className="container relative">
         <div className="flex flex-col items-center gap-6 text-center">
-
           <h2 className="font-sans text-gray-100 text-balance text-heading-xl">
             Crie uma loja online e inicie suas vendas ainda hoje
           </h2>
@@ -27,5 +26,5 @@ export const CallToAction = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
