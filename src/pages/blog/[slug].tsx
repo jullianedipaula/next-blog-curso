@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
 import { allPosts } from 'contentlayer/generated'
+import { Button } from '@/components/ui/button'
+import { useShare } from '@/hooks'
 
 import {
   Breadcrumb,
@@ -16,12 +18,21 @@ import { Markdown } from '@/components/markdown'
 export default function PostPage() {
   const router = useRouter()
   const { slug } = router.query
-  const post = slug 
-    ? allPosts.find((post) => post.slug.toLowerCase() === (slug as string).toLowerCase())
+
+  const post = slug
+    ? allPosts.find(
+        (post) => post.slug.toLowerCase() === (slug as string).toLowerCase(),
+      )
     : null
 
+  const { shareButtons } = useShare({
+    url: `https://site.set/blog/${slug ?? ''}`,
+    title: post?.title ?? '',
+    text: post?.description ?? '',
+  })
+
   if (!post) {
-    return null 
+    return null
   }
 
   const publishedDate = new Date(post.date).toLocaleDateString('pt-BR')
@@ -77,8 +88,30 @@ export default function PostPage() {
               <Markdown content={post.body.raw} />
             </div>
           </article>
+
+          <aside className="space-y-6">
+            <div className="rounded-lg bg-gray-700 p-4 md:p-6">
+              <h2 className="mb-4 text-heading-xs text-gray-100">
+                Compartilhar
+              </h2>
+
+              <div className="space-y-3">
+                {shareButtons.map((provider) => (
+                  <Button
+                    key={provider.provider}
+                    onClick={() => provider.action()}
+                    variant="outline"
+                    className="w-full justify-start gap-2"
+                  >
+                    {provider.icon}
+                    {provider.name}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
-      </div>{' '}
+      </div>
     </main>
   )
 }
