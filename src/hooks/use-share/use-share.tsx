@@ -1,15 +1,15 @@
-import { useCallback, useMemo } from 'react';
-import { Link2 } from 'lucide-react';
+import { useCallback, useMemo } from 'react'
+import { Link } from 'lucide-react'
 import {
   ShareConfig,
   SOCIAL_PROVIDERS,
   SocialProvider,
-} from './social-providers';
-import { useClipboard } from '../use-clipboard';
+} from './social-providers'
+import { useClipboard } from '../use-clipboard'
 
 type UseShareProps = ShareConfig & {
-  clipboardTimeout?: number;
-};
+  clipboardTimeout?: number
+}
 
 export const useShare = ({
   url,
@@ -17,7 +17,7 @@ export const useShare = ({
   text,
   clipboardTimeout = 2000,
 }: UseShareProps) => {
-  const { isCopied, handleCopy } = useClipboard({ timeout: clipboardTimeout });
+  const { isCopied, handleCopy } = useClipboard({ timeout: clipboardTimeout })
 
   const shareConfig = useMemo(
     () => ({
@@ -25,36 +25,36 @@ export const useShare = ({
       ...(title && { title }),
       ...(text && { text }),
     }),
-    [url, title, text]
-  );
+    [url, title, text],
+  )
 
   const share = useCallback(
     async (provider: SocialProvider) => {
       try {
         if (provider === 'clipboard') {
-          return await handleCopy(url);
+          return await handleCopy(url)
         }
 
-        const providerConfig = SOCIAL_PROVIDERS[provider];
+        const providerConfig = SOCIAL_PROVIDERS[provider]
         if (!providerConfig) {
-          throw new Error(`Provider não suportado: ${provider}`);
+          throw new Error(`Provider não suportado: ${provider}`)
         }
 
-        const shareUrl = providerConfig.shareUrl(shareConfig);
+        const shareUrl = providerConfig.shareUrl(shareConfig)
         const shareWindow = window.open(
           shareUrl,
           '_blank',
-          'width=600, height=600, location=yes, status=yes'
-        );
+          'width=600, height=600, location=yes, status=yes',
+        )
 
-        return !!shareWindow;
+        return !!shareWindow
       } catch (error) {
-        console.error(error);
-        return false;
+        console.error(error)
+        return false
       }
     },
-    [shareConfig, handleCopy, url]
-  );
+    [shareConfig, handleCopy, url],
+  )
 
   const shareButtons = useMemo(
     () => [
@@ -67,12 +67,12 @@ export const useShare = ({
       {
         provider: 'clipboard',
         name: isCopied ? 'Link copiado!' : 'Copiar link',
-        icon: <Link2 className="h-4 w-4" />,
+        icon: <Link className="h-4 w-4" />,
         action: () => share('clipboard'),
       },
     ],
-    [isCopied, share]
-  );
+    [isCopied, share],
+  )
 
   return { shareButtons }
 }
