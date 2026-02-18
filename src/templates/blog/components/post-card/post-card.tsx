@@ -1,20 +1,20 @@
-import { Avatar } from '@/components/avatar';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Avatar } from '@/components/avatar'
+import Image from 'next/image'
+import Link from 'next/link'
 
 type Author = {
-  name: string;
-  avatar: string;
-};
+  name: string
+  avatar: string
+}
 
 type PostCardProps = {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  author: Author;
-};
+  slug: string
+  title: string
+  description: string
+  image: string
+  date: string
+  author: Author
+}
 
 export const PostCard = ({
   slug,
@@ -67,5 +67,5 @@ export const PostCard = ({
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
