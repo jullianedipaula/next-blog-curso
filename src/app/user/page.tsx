@@ -1,7 +1,7 @@
 type UserListProps = {
-  id: number;
-  name: string;
-};
+  id: number
+  name: string
+}
 
 async function fetchUsers(): Promise<UserListProps[]> {
   return new Promise((resolve) => {
@@ -9,21 +9,21 @@ async function fetchUsers(): Promise<UserListProps[]> {
       resolve([
         { id: 1, name: 'Alice' },
         { id: 2, name: 'Bob' },
-      ]);
-    }, 4000);
-  });
+      ])
+    }, 4000)
+  })
 }
 
 async function UserList() {
-  const userList = await fetchUsers();
-  console.log('SERVER', userList);
+  const userList = await fetchUsers()
+  console.log('SERVER', userList)
   return (
     <div className="mt-20 text-white">
       {userList.map((user) => (
         <p key={user.id}>{user.name}</p>
       ))}
     </div>
-  );
+  )
 }
 
 export default function UserListPage() {
@@ -32,5 +32,5 @@ export default function UserListPage() {
       <h2>User List</h2>
       <UserList />
     </>
-  );
+  )
 }
